@@ -149,8 +149,9 @@
 
     // Chargement de la musique
     const backgroundMusic = new Audio("img/sound.mp3");
-    backgroundMusic.loop = true; // Active la lecture en boucle
-    let musicStarted = false;
+    backgroundMusic.loop = false; // Active la lecture en boucle
+
+    backgroundMusic.playbackRate = 2.0;
 
 
     // Remplacer tout le script du popup par celui-ci
@@ -179,14 +180,12 @@
     document.addEventListener('click', () => {
         clickCount++;
 
-        if (!musicStarted) {
+
+
+        if (clickCount % 2 === 1) {
             backgroundMusic.play().catch(err => {
                 console.warn("La lecture automatique est bloquée :", err);
             });
-            musicStarted = true;
-        }
-
-        if (clickCount % 2 === 1) {
             showRandomImagePopup();
         } else {
             const modalElement = document.getElementById('imagePopupModal');
