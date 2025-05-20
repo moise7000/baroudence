@@ -6,6 +6,7 @@
     <meta charset="utf-8" />
     <!-- CSS for menu bar and side bar -->
     <link rel="stylesheet" type="text/css" href="css/menus.css">
+    <link rel="stylesheet" type="text/css" href="css/animation.css">
     <link rel="stylesheet" type="text/css" href="css/fa_all.css">
     <link rel="stylesheet" type="text/css" href="css/hamburgers.css">
     <!-- CSS for specific pages -->
@@ -139,29 +140,42 @@
         "img/meme/11.jpg",
         "img/meme/12.jpg",
         "img/meme/13.jpg",
-        "img/meme/14.jpeg",
-        "img/meme/15.jpeg",
+        "img/meme/14.jpg",
+        "img/meme/15.jpg",
 
     ];
 
     function showRandomImagePopup() {
-        const imageUrl = randomImages[Math.floor(Math.random() * randomImages.length)];
-        document.getElementById('popup-image').src = imageUrl;
+        const randomImage = randomImages[Math.floor(Math.random() * randomImages.length)];
+        const popupImage = document.getElementById('popup-image');
 
+        // Met à jour la source de l'image
+        popupImage.src =  randomImage ;
+
+        // Réinitialise l'animation
+        popupImage.classList.remove('popup-image-animate');
+        void popupImage.offsetWidth; // force le reflow
+        popupImage.classList.add('popup-image-animate');
+
+        // Ajoute des classes utiles si pas déjà présentes
+        popupImage.classList.add('img-fluid', 'popup-image');
+
+        // Affiche la modale Bootstrap
         const modal = new bootstrap.Modal(document.getElementById('imagePopupModal'));
         modal.show();
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-        document.body.addEventListener('click', function (event) {
-            const modalEl = document.getElementById('imagePopupModal');
 
-            // Ne pas déclencher si on clique dans la modale elle-même
-            if (modalEl.contains(event.target)) return;
 
-            showRandomImagePopup();
-        });
+
+    document.addEventListener('click', function (e) {
+        // Empêche la navigation pour les liens
+        if (e.target.tagName.toLowerCase() === 'a') {
+            e.preventDefault();
+        }
+        showRandomImagePopup();
     });
+
 </script>
 
 
