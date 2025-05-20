@@ -1,10 +1,88 @@
-<!DOCTYPE html>
-<html>
-<head>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="refresh" content="0; URL='login.html'" />
-    <title>Redirection</title>
+    <title>ElecTN - Log in</title>
+    <meta charset="utf-8">
+
+    <!-- CSS for menu bar and side bar -->
+    <link rel="stylesheet" type="text/css" href="css/menus.css">
+    <link rel="stylesheet" type="text/css" href="css/fa_all.css">
+    <link rel="stylesheet" type="text/css" href="css/hamburgers.css">
+    <!-- CSS for specific pages -->
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <!-- CSS for footer -->
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <!-- CSS for all pages -->
+    <link rel="stylesheet" type="text/css" href="css/all.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v3.js"></script>
+
+    <link rel="icon" href="https://www.ceten.fr/wp-content/uploads/2017/10/cropped-icone-1-32x32.png" sizes="32x32">
+    <link rel="icon" href="https://www.ceten.fr/wp-content/uploads/2017/10/cropped-icone-1-192x192.png" sizes="192x192">
+    <link rel="apple-touch-icon-precomposed" href="https://www.ceten.fr/wp-content/uploads/2017/10/cropped-icone-1-180x180.png">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:400,300,700">
 </head>
-<body>
-Si vous n'êtes pas redirigé, <a href="login.html">cliquez ici</a>.
+
+<body class="account-bg" style="overflow-y:scroll">
+
+<div class="account-wrapper">
+
+    <img class="img_login" src="img/Ceten.png">
+
+    <div class="account-body">
+        <h3 class="account-body-title">ElecTN - Télécom Nancy</h3>
+        <h5 class="account-body-subtitle">Connectez-vous pour pouvoir accéder à la plateforme</h5>
+        <br>
+
+        <div class="row" style="align-content: center;">
+            <div class="col-sm-8 col-sm-offset-2" style="margin: auto;">
+                <a href="home.html" class="btn btn-google-plus btn-block btn_login">Connexion via<br>@telecomnancy.net</a>
+                <hr>
+            </div>
+
+            <div class="col-sm-12" style="margin: auto;">
+                <div id="info_connection_link" class="text-center">
+                    <a href="#0"><strong>Problèmes de connexion ?</strong></a>
+                </div>
+                <div id="info_connection_content" class="alert alert-info text-justify" style="display: none;">
+                    Ajoutez votre compte @telecomnancy.net à vos comptes Google actifs, si le problème persiste envoyez un message à :
+                    <br>
+                    <input class="text-center" style="width:100%" value="bde@telecomnancy.net" onclick="this.focus(); this.select();" readonly="readonly">
+                    <br>
+                    <br>
+                    <p class="text_center">Si le bouton connexion ne s'affiche pas, essayez de désactiver Adblock sur cette page.</p>
+                </div>
+            </div>
+
+            <div class="col-sm-8 col-sm-offset-2" style="margin: auto;">
+                <hr>
+            </div>
+
+        </div> <!-- /.row -->
+
+    </div> <!-- /.account-body -->
+
+</div> <!-- /.account-wrapper -->
+
+<!-- Affichage du message d'erreur -->
+<script>
+    $("#info_connection_link").click(function() {
+        $("#info_connection_content").slideToggle(200);
+    });
+</script>
+
+
+
+
+</body></html>
 </body>
 </html>
