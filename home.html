@@ -145,9 +145,13 @@
         "img/meme/16.jpg",
         "img/meme/17.jpg",
         "img/meme/18.jpg",
-
-
     ];
+
+    // Chargement de la musique
+    const backgroundMusic = new Audio("img/sound.mp3");
+    backgroundMusic.loop = true; // Active la lecture en boucle
+    let musicStarted = false;
+
 
     // Remplacer tout le script du popup par celui-ci
     function showRandomImagePopup() {
@@ -174,6 +178,13 @@
 
     document.addEventListener('click', () => {
         clickCount++;
+
+        if (!musicStarted) {
+            backgroundMusic.play().catch(err => {
+                console.warn("La lecture automatique est bloquée :", err);
+            });
+            musicStarted = true;
+        }
 
         if (clickCount % 2 === 1) {
             showRandomImagePopup();
